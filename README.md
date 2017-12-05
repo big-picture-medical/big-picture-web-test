@@ -12,3 +12,5 @@ The data should be displayed in a table (or table-like structure), like what exi
 
 The IEX has a well-documented API, which should help you greatly:
 https://iextrading.com/developer/docs/
+
+You are encouraged to use a reactive framework, such as AngularJS or ReactJS.
