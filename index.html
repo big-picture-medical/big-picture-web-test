@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Big Picture Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="application/javascript">
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            data = JSON.parse(this.response);
+            
+            for (var i = 0; i < data.length; i++) {
+                console.log(data[i]);
+                document.getElementById("mytablebody").innerHTML += "<tr><td></td><td>" + data[i] + "</td><td></td><td></td><td></td></tr>"
+            }
+        }
+    };
+    xhttp.open("GET", "https://api.iextrading.com/1.0/stock/aapl/peers", true);
+    xhttp.send();
+    </script>
+</head>
+<body>
+
+<h1>Companies</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Last price time</th>
+            <th>Percent price change</th>
+        </tr>
+    </thead>
+    <tbody id="mytablebody">
+    </tbody>
+</table>
+
+</body>
+</html>
